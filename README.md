@@ -4,7 +4,7 @@
 Port of Anarch for Nintendo Switch homebrew.
 Using Devkitpro,
 
-Full details of anarch below
+Full details of anarch
 https://drummyfish.gitlab.io/anarch/
 
 
