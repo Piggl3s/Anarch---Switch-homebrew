@@ -8,7 +8,7 @@ Full details of anarch
 https://drummyfish.gitlab.io/anarch/
 
 
-I just wanted to port something cool. 
+I just wanted to port something cool.   
 All the hard work was done, I just amended some controls and makefile nonsense.
 
 
