@@ -4,7 +4,7 @@
 Port of Anarch for Nintendo Switch homebrew.
 Using Devkitpro,
 
-Full details of anarch
+Full details of anarch  
 https://drummyfish.gitlab.io/anarch/
 
 
@@ -33,11 +33,11 @@ Also running this under emulation be sure to set Graphics rendering to OpenGl.
 
 ## Controls
 
-Dpad    Forward backwards, Turn Left Turn right
-B       Fire
-Y       Jump
-X & A   cycle weapons
-L & R   Shoulder buttons Strafe left & right
+Dpad    Forward backwards, Turn Left Turn right  
+B       Fire  
+Y       Jump  
+X & A   cycle weapons  
+L & R   Shoulder buttons Strafe left & right  
 
 ## Roadmap
 
