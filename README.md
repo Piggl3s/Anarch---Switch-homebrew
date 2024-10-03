@@ -19,7 +19,7 @@ All the hard work was done, I just amended some controls and makefile nonsense.
 
 Download the Anarch .nro to the switch folder on SD card and it should show up under homebrew apps/games (usually in the album/photo section)
 
-If you want to compile a fresh version you will need DevkitPro installed and the Switch SDL libraries.
+If you want to compile a fresh version you will need DevkitPro installed and Switch SDL libraries (pacman -S switch-portlibs).
 
 ```bash
   cd into the anarch folder
