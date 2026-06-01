@@ -23,15 +23,13 @@ Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), 
 (Ask me how I know... I definitely didn't waste hours debugging a Vulkan black screen just to feel incredibly silly afterward!)
 
 🕹️ Controls
-
-Designed to feel natural on a split pair of Joy-Cons or a Pro Controller:
 Input	Action
 D-Pad / Left Stick	Move Forward/Backward, Turn Left/Right
-L / R	Strafe Left / Right
-B / ZR	Fire Weapon
+L / R (Shoulder buttons)	Strafe Left / Right
+B & ZR	Fire Weapon
 Y	Jump
-X / A	Cycle Weapons
-Left Stick Click (L3)	Free Look (Right-Click Mode)
+X & A	Cycle Weapons
+Left Stick Click (L3)	Free Look (Right-click mode)
 
 
 If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
