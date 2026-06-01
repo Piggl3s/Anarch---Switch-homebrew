@@ -36,12 +36,13 @@ For Users
 
 ---
 
-Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
+Emulation Tip: 
+If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
 (Ask me how I know... I definitely didn't waste hours debugging a Vulkan black screen just to feel incredibly silly afterward!)
 
 ---
 
-For Developers (Compiling from Source)
+Compiling from Source
 If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
 ```bash
 cd Anarch---Switch-homebrew
