@@ -13,10 +13,12 @@ Check out the [Original Anarch Project](https://drummyfish.gitlab.io/anarch/) by
 
 I just wanted to port something awesome to the Switch. All the true genius and hard work belongs to the original creator; I just wrestled with the Makefile nonsense and mapped out some controller bindings to get it running how I wanted.
 
+---
+
 💾 Installation & Setup
 For Users
 
-    Download the latest Anarch---Switch-homebrew.nro.
+    Download the latest anarch.nro.
 
     Drop it into the switch/ folder on your SD card.
 
@@ -32,8 +34,12 @@ For Users
 * **X & A:** Cycle Weapons
 * **Left Stick Click (L3):** Free Look (Right-click mode)
 
+---
+
 Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
 (Ask me how I know... I definitely didn't waste hours debugging a Vulkan black screen just to feel incredibly silly afterward!)
+
+---
 
 For Developers (Compiling from Source)
 If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
