@@ -1,47 +1,40 @@
+🎮 Anarch for Nintendo Switch
 
-# Anarch for Nintendo Switch
+This is a homebrew port of Anarch—the ultimate minimalist, 90s-style shooter—brought over to the Nintendo Switch.
 
-Port of Anarch for Nintendo Switch homebrew.
-Using Devkitpro,
+    Check out the original game: Full details, philosophy, and engine breakdowns can be found at the Official Anarch Website.
 
-Full details of anarch  
-https://drummyfish.gitlab.io/anarch/
+I just wanted to port something awesome to the Switch. All the true genius and hard work belongs to the original creator; I just wrestled with the Makefile nonsense and mapped out some controller bindings to get it running how I wanted.
 
+💾 Installation & Setup
+For Users
 
-I just wanted to port something cool.   
-All the hard work was done, I just amended some controls and makefile nonsense.
+    Download the latest Anarch---Switch-homebrew.nro.
 
+    Drop it into the switch/ folder on your SD card.
 
+    Launch it via the Homebrew Menu (usually accessed through the Album app).
+    
 
+For Developers (Compiling from Source)
 
+If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
+# Navigate to the project directory
+cd Anarch---Switch-homebrew
 
-## Installation
+# Compile the .nro
+make
 
-Download the Anarch .nro to the switch folder on SD card and it should show up under homebrew apps/games (usually in the album/photo section)
+Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
+(Ask me how I know... I definitely didn't waste hours debugging a Vulkan black screen just to feel incredibly silly afterward!)
 
-If you want to compile a fresh version you will need DevkitPro installed and Switch SDL libraries (pacman -S switch-portlibs).
+🕹️ Controls
 
-```bash
-  cd into the anarch folder
-  make
-```
-
-
-Also running this under emulation be sure to set Graphics rendering to OpenGl.
-(I may have tried debugging a vulkan rendered version for hours... Ahhh to feel so very stupid)
-
-
-## Controls
-
-Dpad    Forward backwards, Turn Left Turn right  
-B       Fire  
-Y       Jump  
-X & A   cycle weapons  
-L & R   Shoulder buttons Strafe left & right  
-
-## Roadmap
-
-- Analog stick support
-
-- Sound fixes 
-
+Designed to feel natural on a split pair of Joy-Cons or a Pro Controller:
+Input	Action
+D-Pad / Left Stick	Move Forward/Backward, Turn Left/Right
+L / R	Strafe Left / Right
+B / ZR	Fire Weapon
+Y	Jump
+X / A	Cycle Weapons
+Left Stick Click (L3)	Free Look (Right-Click Mode)
