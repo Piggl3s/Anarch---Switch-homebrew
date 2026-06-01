@@ -419,7 +419,7 @@
   define this to 0.
 */
 #ifndef SFG_CAN_EXIT
-  #define SFG_CAN_EXIT 1
+  #define SFG_CAN_EXIT 0
 #endif
 
 /**

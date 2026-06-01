@@ -129,15 +129,8 @@ void SFG_getMouseOffset(int16_t *x, int16_t *y)
 
   if (sdlController != NULL)
   {
-    *x +=
-      (SDL_GameControllerGetAxis(sdlController,SDL_CONTROLLER_AXIS_RIGHTX) + 
-      SDL_GameControllerGetAxis(sdlController,SDL_CONTROLLER_AXIS_LEFTX)) /
-      SDL_ANALOG_DIVIDER;
-
-    *y +=
-      (SDL_GameControllerGetAxis(sdlController,SDL_CONTROLLER_AXIS_RIGHTY) + 
-      SDL_GameControllerGetAxis(sdlController,SDL_CONTROLLER_AXIS_LEFTY)) /
-      SDL_ANALOG_DIVIDER;
+    *x += SDL_GameControllerGetAxis(sdlController, SDL_CONTROLLER_AXIS_RIGHTX) / SDL_ANALOG_DIVIDER;
+    *y += SDL_GameControllerGetAxis(sdlController, SDL_CONTROLLER_AXIS_RIGHTY) / SDL_ANALOG_DIVIDER;
   }
 }
 
@@ -147,61 +140,55 @@ void SFG_processEvent(uint8_t event, uint8_t data)
 
 int8_t SFG_keyPressed(uint8_t key)
 {
-  if (webKeyboardState[key]) // this only takes effect in the web version 
+  if (webKeyboardState[key]) 
     return 1;
 
+  // Define helpers ONCE at the start of the function
   #define k(x) sdlKeyboardState[SDL_SCANCODE_ ## x]
   #define b(x) ((sdlController != NULL) && \
-    SDL_GameControllerGetButton(sdlController,SDL_CONTROLLER_BUTTON_ ## x))
+    SDL_GameControllerGetButton(sdlController, SDL_CONTROLLER_BUTTON_ ## x))
+  
+  // Single definition for analog (sticks and triggers)
+  #define a(axis, dir, threshold) ((sdlController != NULL) && \
+    (dir > 0 ? SDL_GameControllerGetAxis(sdlController, SDL_CONTROLLER_AXIS_ ## axis) > threshold : \
+               SDL_GameControllerGetAxis(sdlController, SDL_CONTROLLER_AXIS_ ## axis) < -threshold))
 
   switch (key)
   {
-    case SFG_KEY_UP: return k(UP) || k(W) || k(KP_8) || b(DPAD_UP); break;
-    case SFG_KEY_RIGHT: 
-      return k(RIGHT) || k(E) || k(KP_6) || b(DPAD_RIGHT); break;
-    case SFG_KEY_DOWN: 
-      return k(DOWN) || k(S) || k(KP_5) || k(KP_2) || b(DPAD_DOWN); break;
-    case SFG_KEY_LEFT: return k(LEFT) || k(Q) || k(KP_4) || b(DPAD_LEFT); break;
-    case SFG_KEY_A: return k(J) || k(RETURN) || k(LCTRL) || k(RCTRL) || b(A); break;
-    case SFG_KEY_B: return k(K) || k(LSHIFT); break;
-    case SFG_KEY_C: return k(L); break;
-    case SFG_KEY_JUMP: return k(SPACE) || b(X); break;
-    case SFG_KEY_STRAFE_LEFT: return k(A) || k(KP_7) || b(LEFTSHOULDER); break;
-    case SFG_KEY_STRAFE_RIGHT: return k(D) || k(KP_9) || b(RIGHTSHOULDER); break;
-    case SFG_KEY_MAP: return k(TAB) || b(BACK); break;
-    case SFG_KEY_CYCLE_WEAPON: return k(F) ||
-      (sdlMouseButtonState & SDL_BUTTON_MMASK); break;
-    case SFG_KEY_TOGGLE_FREELOOK: return b(LEFTSTICK) ||
-      (sdlMouseButtonState & SDL_BUTTON_RMASK); break;
-    case SFG_KEY_MENU: return k(ESCAPE) || b(START); break;
+    case SFG_KEY_UP:    return k(UP)    || k(W) || b(DPAD_UP)    || a(LEFTY, -1, 8000);
+    case SFG_KEY_DOWN:  return k(DOWN)  || k(S) || b(DPAD_DOWN)  || a(LEFTY, 1, 8000);
+    case SFG_KEY_LEFT:  return k(LEFT)  || k(Q) || b(DPAD_LEFT);
+    case SFG_KEY_RIGHT: return k(RIGHT) || k(E) || b(DPAD_RIGHT);
+    
+    case SFG_KEY_A:     return k(J) || k(RETURN) || b(A) || a(TRIGGERRIGHT, 1, 8000);
+    case SFG_KEY_B:     return k(K) || k(LSHIFT);
+    case SFG_KEY_C:     return k(L);
+    case SFG_KEY_JUMP:  return k(SPACE) || b(X) || a(TRIGGERLEFT, 1, 8000);
+    
+    case SFG_KEY_STRAFE_LEFT:  return k(A) || b(LEFTSHOULDER)  || a(LEFTX, -1, 8000);
+    case SFG_KEY_STRAFE_RIGHT: return k(D) || b(RIGHTSHOULDER) || a(LEFTX, 1, 8000);
+    
+    case SFG_KEY_MAP:             return k(TAB) || b(BACK);
+    case SFG_KEY_CYCLE_WEAPON:    return k(F) || (sdlMouseButtonState & SDL_BUTTON_MMASK);
+    case SFG_KEY_TOGGLE_FREELOOK: return b(LEFTSTICK) || (sdlMouseButtonState & SDL_BUTTON_RMASK);
+    case SFG_KEY_MENU:            return k(ESCAPE) || b(START);
+    
     case SFG_KEY_NEXT_WEAPON:
-      if (k(P) || k(X) || b(B))
-        return 1;
-
-#define checkMouse(cmp)\
-  if (sdlMouseWheelState cmp 0) { sdlMouseWheelState = 0; return 1; }
-
-      checkMouse(>)
-        
+      if (k(P) || k(X) || b(B)) return 1;
+      if (sdlMouseWheelState > 0) { sdlMouseWheelState = 0; return 1; }
       return 0;
-      break;
 
     case SFG_KEY_PREVIOUS_WEAPON:
-      if (k(O) || k(Y) || b(Y))
-        return 1;
-
-      checkMouse(<)
-
-#undef checkMouse
-      
+      if (k(O) || k(Y) || b(Y)) return 1;
+      if (sdlMouseWheelState < 0) { sdlMouseWheelState = 0; return 1; }
       return 0;
-      break;
 
-    default: return 0; break;
+    default: return 0;
   }
 
   #undef k
   #undef b
+  #undef a
 }
   
 int running;

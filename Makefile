@@ -44,6 +44,10 @@ DATA		:=	data
 INCLUDES	:=	include
 # ROMFS		:=	romfs
 
+APP_TITLE   := Anarch Switch
+APP_AUTHOR  := piggl3s
+APP_VERSION := 1.0.0
+
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
