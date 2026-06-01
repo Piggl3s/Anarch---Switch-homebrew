@@ -2,7 +2,8 @@
 
 This is a homebrew port of Anarch—the ultimate minimalist, 90s-style shooter—brought over to the Nintendo Switch.
 
-    Check out the original game: Full details, philosophy, and engine breakdowns can be found at the Official Anarch Website.
+Check out the [Original Anarch Project](https://drummyfish.gitlab.io/anarch/) by Drummyfish.
+
 
 I just wanted to port something awesome to the Switch. All the true genius and hard work belongs to the original creator; I just wrestled with the Makefile nonsense and mapped out some controller bindings to get it running how I wanted.
 
@@ -19,10 +20,8 @@ For Users
 For Developers (Compiling from Source)
 
 If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
-# Navigate to the project directory
+```bash
 cd Anarch---Switch-homebrew
-
-# Compile the .nro
 make
 
 Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
