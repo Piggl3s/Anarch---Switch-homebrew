@@ -22,14 +22,14 @@ For Developers (Compiling from Source)
 Emulation Tip: If you are testing this build inside an emulator (like Ryujinx), make sure your Graphics Backend is strictly set to OpenGL.
 (Ask me how I know... I definitely didn't waste hours debugging a Vulkan black screen just to feel incredibly silly afterward!)
 
-🕹️ Controls
-Input	Action
-D-Pad / Left Stick	Move Forward/Backward, Turn Left/Right
-L / R (Shoulder buttons)	Strafe Left / Right
-B & ZR	Fire Weapon
-Y	Jump
-X & A	Cycle Weapons
-Left Stick Click (L3)	Free Look (Right-click mode)
+## 🕹️ Controls
+
+* **D-Pad / Left Stick:** Move Forward/Backward, Turn Left/Right
+* **L / R (Shoulder buttons):** Strafe Left / Right
+* **B & ZR:** Fire Weapon
+* **Y:** Jump
+* **X & A:** Cycle Weapons
+* **Left Stick Click (L3):** Free Look (Right-click mode)
 
 
 If you want to compile a fresh binary, make sure you have devkitPro set up alongside the Switch SDL libraries (sudo pacman -S switch-portlibs switch-sdl2 switch-sdl2_image).
