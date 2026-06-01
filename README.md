@@ -1,5 +1,7 @@
 🎮 Anarch for Nintendo Switch
 
+![Anarch Switch Icon](https://img.itch.zone/aW1nLzQ1ODM1NjcucG5n/original/wky0ct.png)
+
 This is a homebrew port of Anarch—the ultimate minimalist, 90s-style shooter—brought over to the Nintendo Switch.
 
 Check out the [Original Anarch Project](https://drummyfish.gitlab.io/anarch/) by Drummyfish.
